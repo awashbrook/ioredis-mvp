@@ -1,3 +1,5 @@
+import Redis from 'ioredis'
+
 const config = {
   qualificationKey: "qualification:node:test:1",
   maxNumRange: 100,
@@ -5,7 +7,6 @@ const config = {
     host: 'localhost',
     port: '6379'  
   }
-  // REDIS_URL: process.env.BIGFOOT_DATA_SERVICE_REDIS_URL ?? 'redis://localhost:6379/0'
 };
 
 console.log('Using Redis Params:');
@@ -14,5 +15,11 @@ let params = process.argv.slice(2);
 if (params[0]) {
   config.redisParams.password = params[0];
 } 
+
+config.redisClient = new Redis(config.redisParams); 
+
+config.redisClient.on("error", function(error) {
+  console.error(error);
+});
 
 export default config

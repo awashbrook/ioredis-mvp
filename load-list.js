@@ -1,15 +1,11 @@
 
 import config from './config.js'
 
-import Redis from 'ioredis'
-const client = new Redis(config.redisParams); 
-client.on("error", function(error) {
-    console.error(error);
-  });
+let client = config.redisClient;
 
 client.unlink(config.qualificationKey);
-
 // TODO Pipeline for more efficiency
+// let pipeline = client.pipeline();
 
 console.log('Starting data load at:' + new Date());
  
