@@ -1,17 +1,7 @@
-const Redis = require("ioredis");
 
-const qualificationKey = "qualification:node:test:1";
-const maxNumRange = 2;
+import config from './config.js'
 
-var params = process.argv.slice(2);
-var redisParams = {
-    host: 'localhost',
-    port: '6379'
-  };
-  if (params[0]) {
-    redisParams.password = params[0];
-  } 
-  
+const Redis = require("ioredis");  
 const client = new Redis(redisParams); 
 
 client.on("error", function(error) {

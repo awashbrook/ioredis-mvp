@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "IOJS Redis  Client",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "ioredis": "^4.24.2"
