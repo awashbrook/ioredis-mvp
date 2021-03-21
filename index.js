@@ -19,8 +19,4 @@ client.unlink(config.qualificationKey);
 // // use the promise instead of callback
 // client.get(config.qualificationKey).then((result) => console.log(result));
 
-// TODO ZREVRANGE
-client.zadd("vehicles", 0, "car", 0, "bike");
-client.zrange("vehicles", 0, -1, "WITHSCORES").then((res) => console.log(res));
-
 client.quit();
