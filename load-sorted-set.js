@@ -5,14 +5,10 @@ let client = config.redisClient;
 
 client.unlink(config.qualificationKey);
 
-console.log('Starting data load at:' + new Date());
+console.log('Starting Redis Sorted Set data load at:' + new Date());
 
-// TODO ZREVRANGE
-client.zadd(config.qualificationKey, 0, "car", 0, "bike");
-
-// TODO Separate Retrieve
-client.zrange(config.qualificationKey, 0, -1, "WITHSCORES").then((res) => console.log(res));
-// Promise
-console.log('Ending data load at:' + new Date());
+for(var i = 0; i < config.maxNumRange ;i++) {
+  client.zadd(config.qualificationKey, i, i);
+}
 
 client.quit();
