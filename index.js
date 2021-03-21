@@ -10,14 +10,6 @@ client.on("error", function(error) {
 
 client.unlink(config.qualificationKey);
 
-// TODO Pipeline for more efficiency
-
-for(var i = 0; i < config.maxNumRange ;i++) {
-    client.lpush(config.qualificationKey, i); // Doesn't print with IORedis
-}
-
-// TODO Split these up
-
 // Fails without promises!
 // for(var i = 100; i > 0 ;i--) {
 //     client.lpop(config.qualificationKey).then((res) => console.log(res));
@@ -26,9 +18,5 @@ for(var i = 0; i < config.maxNumRange ;i++) {
 // client.set(config.qualificationKey, "Hello!");
 // // use the promise instead of callback
 // client.get(config.qualificationKey).then((result) => console.log(result));
-
-// TODO ZREVRANGE
-client.zadd("vehicles", 0, "car", 0, "bike");
-client.zrange("vehicles", 0, -1, "WITHSCORES").then((res) => console.log(res));
 
 client.quit();
