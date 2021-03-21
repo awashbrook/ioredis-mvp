@@ -10,7 +10,7 @@ const config = {
 
 var params = process.argv.slice(2);
 if (params[0]) {
-  redisParams.password = params[0];
+  config.redisParams.password = params[0];
 } 
 
 export default config
