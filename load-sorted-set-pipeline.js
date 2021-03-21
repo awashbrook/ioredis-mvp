@@ -15,5 +15,6 @@ for(var i = 0; i < config.maxNumRange ;i++) {
 
 console.log('Ending data load at:' + new Date());
 
-pipeline.exec();
+pipeline.exec().then(() => console.log('Ending data load of ' + config.maxNumRange + ' items at: ' + new Date()));
+
 client.quit();
