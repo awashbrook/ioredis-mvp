@@ -8,10 +8,9 @@ client.on("error", function(error) {
     console.error(error);
   });
 
-client.unlink(config.qualificationKey);
+const startTime = new Date().getTime(); 
 
-// client.set(config.qualificationKey, "Hello!");
-// // use the promise instead of callback
-// client.get(config.qualificationKey).then((result) => console.log(result));
+console.log(`Took ${new Date().getTime() - startTime} ms`);
+
 
 client.quit();

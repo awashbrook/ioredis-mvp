@@ -5,9 +5,10 @@ let client = config.redisClient;
 
 client.unlink(config.qualificationKey);
 
-console.log('Starting Redis List data load');
-console.log(new Date());
-// Focus on test array from outset
+console.log('Starting Redis List Parallel data load');
+const startTime = new Date().getTime(); 
+
+// TODO Production dataset
 const items = [1,2,3,4];
 // Promise.all(arr.map(async (...) => ...)).  
 const asynchRes = await Promise.all(items.map(async (i) => {
@@ -18,7 +19,8 @@ const asynchRes = await Promise.all(items.map(async (i) => {
     });
     return maxNumItems;
 }));
-console.log(new Date());
+
 console.log(asynchRes);
+console.log(`Took ${new Date().getTime() - startTime} ms`);
 
 client.quit();
