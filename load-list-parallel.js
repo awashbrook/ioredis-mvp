@@ -8,8 +8,11 @@ client.unlink(config.qualificationKey);
 console.log('Starting Redis List Parallel data load...');
 const startTime = new Date().getTime(); 
 
-// TODO Production dataset
-const items = [1,2,3,4];
+const items = [];
+for(var i = 0; i < config.maxNumRange; i++) {
+    items[i] = i;
+}
+ 
 // Promise.all(arr.map(async (...) => ...)).  
 const asynchRes = await Promise.all(items.map(async (i) => {
     let maxNumItems = 0;
