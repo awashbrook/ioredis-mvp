@@ -5,7 +5,7 @@ let client = config.redisClient;
 
 client.unlink(config.qualificationKey);
 
-console.log('Starting Redis Sorted Set data load at...');
+console.log('Starting Redis Sorted Set data load...');
 const startTime = new Date().getTime(); 
 
 // TODO Refactor with async array map

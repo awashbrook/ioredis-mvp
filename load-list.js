@@ -18,6 +18,5 @@ for(var i = 0; i < config.maxNumRange ;i++) {
          }
       });
 }
- 
 
 client.quit();

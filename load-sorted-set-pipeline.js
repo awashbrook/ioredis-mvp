@@ -7,7 +7,7 @@ client.unlink(config.qualificationKey);
 
 let pipeline = client.pipeline();
 
-console.log('Starting Redis Pipeline Sorted Set data load at...');
+console.log('Starting Redis Pipeline Sorted Set data load...');
 const startTime = new Date().getTime(); 
 
 for(var i = 0; i < config.maxNumRange ;i++) {

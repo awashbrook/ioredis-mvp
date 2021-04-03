@@ -5,7 +5,7 @@ let client = config.redisClient;
 
 client.unlink(config.qualificationKey);
 
-console.log('Starting Redis List Parallel data load');
+console.log('Starting Redis List Parallel data load...');
 const startTime = new Date().getTime(); 
 
 // TODO Production dataset
