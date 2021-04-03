@@ -9,6 +9,8 @@ const config = {
   }
 };
 
+config.sampleData = Array.from({length: config.maxNumRange}, (_, id) => (id)); 
+
 console.log('Using Redis Params:');
 console.log(config.redisParams);
 let params = process.argv.slice(2);
